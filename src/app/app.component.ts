@@ -5,6 +5,24 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'scl-admin-web';
+export class AppComponent   {
+
+  isLoggedIn = false;
+
+  title = 'admin4utbecategory';
+
+  constructor(){
+    if(localStorage.getItem('user_1')!== null)
+    this.isLoggedIn= true
+    else
+    this.isLoggedIn = false
+  }
+
+  isLoggedOn(value){
+    this.isLoggedIn = value;
+  }
+
+
+
+
 }
