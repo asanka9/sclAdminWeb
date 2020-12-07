@@ -121,8 +121,16 @@
               "devServerTarget": "scl-admin-web:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "scl-admin-web"
+    }
+  },
+  "defaultProject": "scl-admin-web",
+  "cli": {
+    "analytics": "9963fabd-b69c-4a7d-98eb-01dfde1b6a42"
+  }
 }

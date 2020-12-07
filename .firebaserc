@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sclappsadmin": {
+      "hosting": {
+        "scl-admin-web": [
+          "sclappsadmin"
+        ]
+      }
+    }
+  }
+}
