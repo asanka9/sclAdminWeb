@@ -20,7 +20,15 @@ import { FooterComponent } from './shared/footer/footer.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { HomeComponent } from './module/home/home.component';
 
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatStepperModule} from '@angular/material/stepper';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -38,12 +46,21 @@ import { HomeComponent } from './module/home/home.component';
     HomeComponent,
   ],
   imports: [
+    MatStepperModule,
+    ScrollingModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatCardModule,
+    FormsModule,
+    MatInputModule,
+    MatCheckboxModule,
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

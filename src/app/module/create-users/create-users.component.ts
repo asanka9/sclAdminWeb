@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-create-users',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateUsersComponent implements OnInit {
 
-  constructor() { }
+  validity = false;
+
+  constructor(private authentication:AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
+  async createUser(email:string,password:string){
+    await this.authentication.signup(email,password);
+  }
+
+  async createAdmin(){
+
+  }
 }

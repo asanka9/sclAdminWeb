@@ -1,1 +1,60 @@
-<p>create-sub-topics works!</p>
+<div class="row">
+  <div class="col-6">
+    <mat-form-field appearance="none">
+      <mat-label>Select APP</mat-label>
+      <mat-select disableRipple (selectionChange)="onAppChange($event)">
+        <mat-option *ngFor="let app of appList" [value]="app.payload.doc.data().databaseName">
+          {{ app.payload.doc.data().appName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+</div>
+<mat-divider></mat-divider>
+<div class="row mt-4">
+  <div class="col-6">
+    <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
+      <div *ngFor="let item of categoryList" class="scroll-item">
+        <mat-card class="example-card">
+          <p>{{item.payload.doc.data().name}}</p>
+          <img mat-card-image [src]="item.payload.doc.data().url"
+            alt="Photo of a Shiba Inu">
+          <mat-card-actions>
+            <button class="btn btn-danger" (click)="deleteCategory(item)" mat-button>DELETE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="col-6">
+    <form>
+      <mat-form-field  style="width: 500px;">
+        <mat-label>Category Name :</mat-label>
+        <input #name matInput  >
+      </mat-form-field>
+      <mat-form-field  style="width: 500px;">
+        <mat-label>Database Name :</mat-label>
+        <input #database_Name matInput  >
+      </mat-form-field>
+      <mat-form-field  style="width: 500px;">
+        <mat-label>Image URL :</mat-label>
+        <input #url_ matInput  >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select Type :</mat-label>
+        <mat-select [(value)]="type" >
+          <mat-option value="video">
+            Youtube App
+          </mat-option>
+          <mat-option value="image">
+            Facebook App
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      {{type}}<br>
+      <button style="width: 300px;" type="submit" (click)="createCategory(name.value,database_Name.value,url_.value)" class="btn btn-success" mat-raised-button>ADD</button>
+    </form>
+  </div>
+</div>

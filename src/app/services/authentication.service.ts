@@ -30,6 +30,6 @@ export class AuthenticationService {
 
   logout(){
     this.firebaseAuth.signOut()
-    localStorage.removeItem('user')
+    localStorage.removeItem('user_1')
   }
 }
